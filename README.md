@@ -13,6 +13,7 @@ run pintod server
 docker run \
     -v PINTO_REPO:/pinto \
     -e PINTO_REPOSITORY_ROOT=/pinto \
+    -p 3111:3111
     jasei/pinto \
     pintod
 ```
@@ -22,7 +23,6 @@ before first `pintod` start is need to initialize pinto repository dir
 docker run \
     -v PINTO_REPO:/pinto \
     -e PINTO_REPOSITORY_ROOT=/pinto \
-    -p 3111:3111
     jasei/pinto \
     pinto init
 ```
