@@ -9,6 +9,8 @@
 ## Synopsis
 
 run pintod server
+
+(`pinto init` is called before automatically)
 ```
 docker run \
     -v PINTO_REPO:/pinto \
@@ -18,21 +20,16 @@ docker run \
     pintod
 ```
 
-before first `pintod` start is need to initialize pinto repository dir
-```
-docker run \
-    -v PINTO_REPO:/pinto \
-    -e PINTO_REPOSITORY_ROOT=/pinto \
-    jasei/pinto \
-    pinto init
-```
-
 pull MODULE from CPAN to pinto repository
+
+I really recommend to use `--skip-all-missing-prerequisites` or `-K` more in [issue #1](https://github.com/JaSei/pinto-docker/issues/1)
+and
+`--use-default-message` or `-M` because in docker isn't set editor properly.
 ```
 docker run \
     -e PINTO_REPOSITORY_ROOT=https://PINTO_SERVER_URL \
     jasei/pinto \
-    pinto -v --user pinto --password PASSWORD pull MODULE
+    pinto -v -K -M --user pinto --password PASSWORD pull MODULE
 ```
 
 push MODULE to pinto repository
@@ -40,7 +37,7 @@ push MODULE to pinto repository
 docker run \
     -e PINTO_REPOSITORY_ROOT=https://PINTO_SERVER_URL \
     jasei/pinto \
-    pinto -v --user pinto --password PASSWORD push MODULE
+    pinto -v -M --user pinto --password PASSWORD push MODULE
 ```
 
 ## Placeholders exaplanation
