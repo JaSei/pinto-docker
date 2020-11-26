@@ -37,7 +37,7 @@ push MODULE to pinto repository
 docker run \
     -e PINTO_REPOSITORY_ROOT=https://PINTO_SERVER_URL \
     jasei/pinto \
-    pinto -v -M --user pinto --password PASSWORD push MODULE
+    pinto -v -M --user pinto --password PASSWORD add MODULE
 ```
 
 ## Placeholders exaplanation
