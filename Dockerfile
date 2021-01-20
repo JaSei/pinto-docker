@@ -2,8 +2,9 @@ FROM perl:5.30
 
 ENV PINTO_USERNAME pinto 
 ENV USERNAME pinto
+ENV HTTPS_CA_DIR /etc/ssl/certs
 
-RUN cpanm Crypt::SSLeay Pinto LWP::Protocol::https
+RUN cpanm -v Crypt::SSLeay Pinto LWP::Protocol::https
 
 COPY ./docker_entrypoint.pl /docker_entrypoint.pl
 
