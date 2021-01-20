@@ -6,6 +6,8 @@
 
 [Pinto](https://metacpan.org/pod/distribution/Pinto/bin/pinto) is a custom repository of Perl modules
 
+:warning: **This repository use [fork of Pinto distribution](https://github.com/JaSei/Pinto)**!
+
 ## Synopsis
 
 run pintod server
@@ -86,3 +88,7 @@ server {
 (this configuration have a anonymize access for GET (cpan like API) and authenticated access to pinto API (eg. pull/push))
 
 Don't use passwords without SSL/TLS encryption!
+
+
+## Environment variables
+* PINTO_UA_TIMEOUT - set timeout for pinto LWP::UserAgent, it's helpfull when remote call fail with `read timeout` ([#6](https://github.com/JaSei/pinto-docker/issues/6))
