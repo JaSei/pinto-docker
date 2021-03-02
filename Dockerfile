@@ -11,12 +11,13 @@ FROM perl:5.30
 ENV PINTO_USERNAME pinto 
 ENV USERNAME pinto
 ENV HTTPS_CA_DIR /etc/ssl/certs
-ENV PERL_YAML_BACKEND=YAML::XS
 
 RUN cpanm -v LWP::Protocol::https YAML::XS
 COPY --from=builder /tmp/JaSei-Pinto-69c0b80/Pinto-0.14.tar.gz /tmp/pinto.tar.gz
 RUN cpanm --notest /tmp/pinto.tar.gz
 
 COPY ./docker_entrypoint.pl /docker_entrypoint.pl
+
+ENV PERL_YAML_BACKEND=YAML::XS
 
 ENTRYPOINT ["/docker_entrypoint.pl"]
